@@ -1,0 +1,36 @@
+GET http://localhost:5000/DataKontrols
+
+###
+
+GET http://localhost:5000/DataKontrols/1
+
+###
+POST http://localhost:5000/DataKontrols
+Content-Type: application/json
+
+{
+                "suhu" : 27,
+                "volume" : 58,
+                "ppm_before" : 510,
+                "ppm_after" : 796,
+                "selisih" : 290,
+                "Vnutrisi" : 28,
+                "active_pump" : 28,
+                "setpoint" : 800
+}
+
+###
+PATCH http://localhost:5000/parameters/1
+Content-Type: application/json
+
+{
+    "setpoint_atas" : 750,
+    "setpoint_bawah" : 510,
+    "panjang" : 50.2,
+    "lebar" : 32,
+    "tinggi" : 35, 
+    "flowrate" : 1
+}
+
+###
+GET http://localhost:5000/parameters/1

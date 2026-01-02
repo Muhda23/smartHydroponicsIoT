@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model DataKontrols {
+  id Int @id @default(autoincrement())
+  suhu Int
+  volume Float
+  ppm_before Int
+  ppm_after Int
+  selisih Int
+  Vnutrisi Float
+  active_pump Float
+  setpoint Int
+  controlAt DateTime @default(now())
+}
+
+model parameters {
+  id Int @id
+  setpoint_atas Int
+  setpoint_bawah Int
+  panjang Float
+  lebar Float
+  tinggi Float
+  flowrate Float
+  updateAt DateTime
+}
+
+model dataMonitoring{
+  id Int @id @default(autoincrement())
+  ppm Int
+  suhu Int
+  volume Float
+  monitoringAt DateTime @default(now())
+
+}
